@@ -12,7 +12,7 @@ const LaunchIntentHandler = {
     const factArr = data;
     const factIndex = Math.floor(Math.random() * factArr.length);
     const randomFact = factArr[factIndex];
-    const speechOutput = 'Welcome  to the Future Radio SHow Skill, We are here to engage and entertain you and this responsibility was taken by our show host Robert, I am pleased to introduce you all, our favorite host, Robert <audio src="https://raw.githubusercontent.com/sarthakbhutani/AlexaNewFiles/master/Converted/intro1_alexa.mp3"/>,Say get news for latest super hero new or just speak with your super hero';
+    const speechOutput = 'Welcome  to the Future Radio SHow Skill, We are here to engage and entertain you and this responsibility was taken by our show host Robert, I am pleased to introduce you all, our favorite host, Robert <audio src="https://raw.githubusercontent.com/sarthakbhutani/AlexaNewFiles/master/audioFiles/intro1_alexa.mp3"/>,Say get news for latest super hero new or just speak with your super hero';
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .reprompt(speechOutput)
@@ -28,14 +28,14 @@ const TalkingIntentHandler = {
   },
   handle(handlerInput) {
     
-    const start = '<audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_alien_voice_05"/>';
-    const end = '<audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_door_open_02"/>';
-     //const prosodyStart = '</prosody>'
-     // const prosodyEnd = '<prosody rate="120%" pitch="low" volume="x-loud">'
-      var content = handlerInput.requestEnvelope.request.intent.slots.talkingTom.value
-      // var content ='its a good day';
-    //const speechOutput = start +prosodyStart +content + prosodyEnd+ end;
-    const speechOutput = start + content + end;
+		const start = '<audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_alien_voice_05"/>';
+		const end = '<audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_door_open_02"/>';
+    const prosodyEnd = '</prosody>'
+    const prosodyStart  = '<prosody rate="120%" pitch="low" volume="x-loud">'
+    var content = handlerInput.requestEnvelope.request.intent.slots.talkingTom.value
+//       var content ='i ts a good day';
+    const speechOutput = start +prosodyStart +content + prosodyEnd+ end;
+//     const speechOutput = start + content + end;
     
     return handlerInput.responseBuilder
       .speak(speechOutput)
